@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tam Cốc in 2 Giorni &amp; 2 Notti — Guida Interattiva di Ninh Bình</title>
+    <meta
+      name="description"
+      content="Webapp interattiva per visitare Tam Cốc e Ninh Bình in due giorni e due notti, partendo oggi alle 12:00: itinerario ora per ora, mappa dei picchi carsici, calcolatore di budget in VND/EUR e checklist pratica."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a href="#top" class="brand" aria-label="Tam Cốc Guida">
+          <span class="brand-title">Tam Cốc</span>
+          <span class="brand-sub">Ninh Bình · 2 Notti</span>
+        </a>
+        <nav aria-label="Navigazione principale">
+          <ul class="nav-links">
+            <li><a href="#itinerario">Itinerario</a></li>
+            <li><a href="#mappa">Mappa</a></li>
+            <li><a href="#budget">Budget</a></li>
+            <li><a href="#info">Toolkit</a></li>
+          </ul>
+        </nav>
+        <div class="nav-progress-pill" aria-live="polite">
+          <span id="nav-progress-text">0/12 fatte</span>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero Section -->
+      <section class="hero" aria-label="Introduzione al viaggio a Tam Cốc">
+        <div class="hero-media">
+          <img
+            src="./assets/images/tam-coc-hero.jpg"
+            alt="Barche sampan sul fiume Ngô Đồng circondate dai picchi carsici e dalle risaie di Tam Cốc al tramonto"
+          />
+        </div>
+        <div class="container hero-content">
+          <p class="hero-kicker">Vietnam del Nord · Provincia di Ninh Bình</p>
+          <h1>Due giorni a Tam Cốc,<br />tra grotte, risaie e picchi carsici</h1>
+          <p class="hero-lead">
+            Un itinerario ragionato con partenza oggi a mezzogiorno e soggiorno di due notti:
+            navigazione sul fiume Ngô Đồng, pagoda di Bích Động, alba a Hang Múa, Hoa Lư e Tràng An UNESCO.
+          </p>
+
+          <div class="hero-trip-bar">
+            <div class="trip-stat">
+              <span class="trip-stat-label">Partenza</span>
+              <span class="trip-stat-value" id="trip-start-display">Oggi, 12:00</span>
+            </div>
+            <div class="trip-divider" aria-hidden="true"></div>
+            <div class="trip-stat">
+              <span class="trip-stat-label">Check-out</span>
+              <span class="trip-stat-value" id="trip-end-display">Dopodomani, 11:30</span>
+            </div>
+            <div class="trip-divider" aria-hidden="true"></div>
+            <div class="trip-stat">
+              <span class="trip-stat-label">Soggiorno</span>
+              <span class="trip-stat-value">2 Notti · Base Tam Cốc</span>
+            </div>
+            <div class="date-control">
+              <label for="trip-start-input">Cambia data:</label>
+              <input type="date" id="trip-start-input" class="date-input" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Itinerary Section -->
+      <section class="section" id="itinerario">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-eyebrow">Programma ora per ora</p>
+              <h2 class="section-title">L’itinerario passo dopo passo</h2>
+              <p class="section-desc">
+                Pensato per evitare la folla dei tour giornalieri da Hanoi e sfruttare le ore di luce
+                migliori. Spunta le tappe mano a mano che le completi: il progresso resta salvato sul dispositivo.
+              </p>
+            </div>
+          </div>
+
+          <div class="itinerary-controls">
+            <div class="day-tabs" id="day-tabs" role="tablist" aria-label="Filtra per giorno"></div>
+            <div class="progress-box">
+              <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+              <span class="progress-label" id="progress-label">0/12 tappe completate</span>
+            </div>
+          </div>
+
+          <div id="timeline-container"></div>
+
+          <!-- Visual Highlights -->
+          <div class="highlights-grid" aria-label="Momenti imperdibili del viaggio">
+            <figure class="highlight-figure">
+              <div class="highlight-img-wrap">
+                <img
+                  src="./assets/images/bich-dong.jpg"
+                  alt="Ponte in pietra sul laghetto di loto verso la Pagoda di Bích Động"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption class="highlight-caption">
+                <h4>Giorno 1 · Luce d’oro a Bích Động</h4>
+                <p>
+                  Dopo la barca a Tam Cốc, 10 minuti in bicicletta tra le risaie ti portano al ponte
+                  in pietra e alle tre pagode scavate nella falesia calcarea.
+                </p>
+              </figcaption>
+            </figure>
+
+            <figure class="highlight-figure">
+              <div class="highlight-img-wrap">
+                <img
+                  src="./assets/images/hang-mua.jpg"
+                  alt="Scalinata in pietra verso la cima di Hang Múa con vista sul fiume serpeggiante di Tam Cốc"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption class="highlight-caption">
+                <h4>Giorno 2 · Mattina presto su Hang Múa</h4>
+                <p>
+                  Salire i 500 gradini prima delle 08:30 significa godersi la brezza mattutina e la
+                  vista a 360° sulla valle prima dell’arrivo dei pullman.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Karst Map -->
+      <section class="section section-alt" id="mappa">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-eyebrow">Orientamento nella valle</p>
+              <h2 class="section-title">Mappa interattiva di Tam Cốc &amp; Ninh Bình</h2>
+              <p class="section-desc">
+                Tutte le tappe principali si trovano entro un raggio di 12 km da Tam Cốc, facilmente
+                collegabili in bicicletta o scooter lungo strade panoramiche pianeggianti.
+              </p>
+            </div>
+          </div>
+
+          <div class="map-layout">
+            <div class="map-canvas-wrap">
+              <svg
+                class="karst-svg"
+                viewBox="0 0 560 400"
+                role="img"
+                aria-label="Mappa schematica interattiva delle tappe di Tam Cốc e Ninh Bình"
+              >
+                <defs>
+                  <linearGradient id="riverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#87B3A4" />
+                    <stop offset="100%" stop-color="#5E8F7F" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Background & Karst Contours -->
+                <rect width="560" height="400" fill="#ECE7DA" />
+
+                <!-- Stylized Karst Massifs -->
+                <g fill="#D9D3C2" stroke="#C7BFA9" stroke-width="1">
+                  <path d="M55,140 Q90,75 135,115 Q170,150 115,175 Q65,185 55,140 Z" />
+                  <path d="M185,55 Q235,28 285,68 Q310,98 250,108 Q190,100 185,55 Z" />
+                  <path d="M60,260 Q95,215 155,245 Q175,295 110,340 Q55,320 60,260 Z" />
+                  <path d="M275,220 Q325,185 360,225 Q375,275 315,285 Q265,265 275,220 Z" />
+                  <path d="M170,320 Q235,305 280,350 Q260,385 185,375 Z" />
+                </g>
+
+                <!-- Ngô Đồng & Tràng An Waterways -->
+                <path
+                  d="M255,280 C235,315 190,345 145,355"
+                  fill="none"
+                  stroke="url(#riverGrad)"
+                  stroke-width="9"
+                  stroke-linecap="round"
+                  opacity="0.75"
+                />
+                <path
+                  d="M245,120 C220,145 265,165 235,195 C210,215 235,245 255,280"
+                  fill="none"
+                  stroke="url(#riverGrad)"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                  opacity="0.55"
+                />
+
+                <!-- Scenic Connecting Roads -->
+                <g fill="none" stroke="#9B8E76" stroke-width="2" stroke-dasharray="5 5" opacity="0.85">
+                  <path d="M135,315 Q195,295 255,280" />
+                  <path d="M255,280 Q225,250 215,225" />
+                  <path d="M255,280 Q295,235 310,185" />
+                  <path d="M310,185 Q285,145 245,120" />
+                  <path d="M245,120 Q200,95 160,85" />
+                  <path d="M255,280 Q365,265 455,230" />
+                </g>
+
+                <!-- Compass Rose -->
+                <g transform="translate(510, 52)" opacity="0.65">
+                  <circle cx="0" cy="0" r="20" fill="none" stroke="#4C5D57" stroke-width="1" />
+                  <path d="M0,-14 L4,0 L0,14 L-4,0 Z" fill="#2A5C4D" />
+                  <text
+                    x="0"
+                    y="-24"
+                    text-anchor="middle"
+                    font-family="JetBrains Mono, monospace"
+                    font-size="10"
+                    fill="#1A2623"
+                  >
+                    N
+                  </text>
+                </g>
+
+                <!-- Dynamic Pins Layer -->
+                <g id="map-pins-layer"></g>
+              </svg>
+            </div>
+
+            <div class="map-detail-card" id="map-detail-card" aria-live="polite"></div>
+          </div>
+
+          <div class="map-pin-pills" id="map-pin-pills" aria-label="Selezione rapida tappe sulla mappa"></div>
+        </div>
+      </section>
+
+      <!-- Budget Calculator Section -->
+      <section class="section" id="budget">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-eyebrow">Pianificazione spese</p>
+              <h2 class="section-title">Calcolatore di budget (2 notti)</h2>
+              <p class="section-desc">
+                Stima realistica in Euro e Dong Vietnamiti (VND) comprensiva di 2 notti a Tam Cốc,
+                biglietti per barche e templi, noleggio locale e pasti.
+              </p>
+            </div>
+          </div>
+
+          <div class="budget-grid">
+            <div class="budget-controls-card">
+              <div class="control-group">
+                <span class="control-label">Numero di viaggiatori</span>
+                <div class="stepper">
+                  <button
+                    type="button"
+                    id="travelers-dec"
+                    class="stepper-btn"
+                    aria-label="Riduci numero viaggiatori"
+                  >
+                    −
+                  </button>
+                  <span class="stepper-value" id="travelers-value">2 persone</span>
+                  <button
+                    type="button"
+                    id="travelers-inc"
+                    class="stepper-btn"
+                    aria-label="Aumenta numero viaggiatori"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <span class="control-label">Stile di viaggio</span>
+                <div class="style-options">
+                  <button type="button" class="style-btn" data-budget-style="backpacker">
+                    <strong>Zaino in spalla</strong>
+                    <span>Essenziale</span>
+                  </button>
+                  <button type="button" class="style-btn active" data-budget-style="comfort">
+                    <strong>Comfort</strong>
+                    <span>Consigliato</span>
+                  </button>
+                  <button type="button" class="style-btn" data-budget-style="boutique">
+                    <strong>Boutique</strong>
+                    <span>Eco-lodge</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="budget-summary-card" id="budget-summary" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Practical Toolkit -->
+      <section class="section section-alt" id="info">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-eyebrow">Pronto a partire oggi</p>
+              <h2 class="section-title">Checklist &amp; informazioni pratiche</h2>
+            </div>
+          </div>
+
+          <div class="toolkit-grid">
+            <div class="toolkit-card">
+              <h3>Cosa mettere nello zaino</h3>
+              <p class="toolkit-card-sub">Spunta gli oggetti già pronti: lo stato viene salvato automaticamente.</p>
+              <ul class="checklist" id="packing-checklist"></ul>
+            </div>
+
+            <div class="toolkit-card">
+              <h3>Frasi utili &amp; trasporti</h3>
+              <p class="toolkit-card-sub">Qualche parola in vietnamita fa sempre nascere un sorriso.</p>
+              <div class="phrase-list" id="phrase-list"></div>
+
+              <div class="transport-box">
+                <h4>Come arrivare e ripartire da Tam Cốc</h4>
+                <ul>
+                  <li>
+                    <strong>Da/per Hanoi:</strong> Limousine van (9–11 posti) diretto da/per hotel nel
+                    Quartiere Vecchio, ~2 ore, ~200.000–250.000 VND.
+                  </li>
+                  <li>
+                    <strong>In treno:</strong> Stazione di Ninh Bình a 15 minuti di taxi/Grab da Tam Cốc,
+                    ideale per proseguire verso Phong Nha (Đồng Hới) o Huế.
+                  </li>
+                  <li>
+                    <strong>Sul posto:</strong> Bici perfetta per Tam Cốc, Bích Động e Thái Vi; scooter
+                    consigliato il Giorno 2 per Hang Múa, Hoa Lư e Tràng An.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="footer-brand">Tam Cốc · 2 Giorni &amp; 2 Notti</div>
+          <div>Guida interattiva pubblicata automaticamente tramite GitHub Pages.</div>
+        </div>
+        <div class="footer-actions">
+          <button type="button" id="reset-progress-btn" class="btn-reset">
+            Reimposta spunte e data a oggi
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
